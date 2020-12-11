@@ -1,2 +1,2 @@
-# InterTex-Feature-Descriptor
+# InterTex: Interwoven Texture-Based Feature Descriptor
 Coming soon ...
