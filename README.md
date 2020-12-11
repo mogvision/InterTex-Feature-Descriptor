@@ -1,2 +1,2 @@
 # InterTex-Feature-Descriptor
-InterTex
+# InterTex-Feature-Descriptor
