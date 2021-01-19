@@ -1,13 +1,13 @@
 # InterTex: Interwoven Texture-Based Feature Descriptor
 
 ## Introduction
-InterTex is a fast feature descriptor for computer vision tasks. This repo includes the code for feature extraction from the keypoint detected by FFD(https://github.com/mogvision/FFD). Given a pair of images, you can use this repo to extract matching features across the image pair.
+InterTex is a fast feature descriptor for computer vision tasks. This repo includes the code for feature extraction from the keypoint detected by FFD (https://github.com/mogvision/FFD). Given a pair of images, you can use this repo to extract matching features across the image pair.
 
+*  Link: https://www.sciencedirect.com/science/article/pii/S003132032100008X?via%3Dihub#
 
+*  PDF: https://1drv.ms/b/s!Ap1FyV7QV37ThU92tMnxL5NEaRyq?e=mRoQLN
 
-* Full paper PDF: [FFD: Fast Feature Detector](https://arxiv.org/pdf/2012.00859.pdf).
-
-* Authors: Morteza Ghahremani, Yonghuai Liu and Bernard Tiddeman
+* Authors: Morteza Ghahremani, Yitian Zhao, Bernard Tiddeman and Yonghuai Liu
 
 
 
@@ -20,11 +20,11 @@ InterTex is a fast feature descriptor for computer vision tasks. This repo inclu
 ## Contents
 There are two main scripts in this repo:
 
-1. `demo_FFD.py`: runs and shows extracted keypoints located in `image/`
-2. `match_pairs.py`: reads an image pair from `image/` and matches (SIFT descriptor is used for feature description)
+1. `demo.py`: runs and shows extracted keypoints located in `image/`
+2. `match_pairs.py`: reads an image pair from `image/` and matches (FFD is used for feature detection)
 
 ```sh
-python3 demo_FFD.py
+python3 demo.py
 python3 match_pairs.py
 ```
 
@@ -33,14 +33,14 @@ python3 match_pairs.py
 If you use any ideas from the paper or code from this repo, please consider citing:
 
 ```txt
-@ARTICLE{9292438,
-  author={M. {Ghahremani} and Y. {Liu} and B. {Tiddeman}},
-  journal={IEEE Transactions on Image Processing}, 
-  title={FFD: Fast Feature Detector}, 
-  year={2020},
-  volume={},
-  number={},
-  pages={1-1},
-  doi={10.1109/TIP.2020.3042057}}
-
+@article{GHAHREMANI2021107821,
+title = "Interwoven Texture-Based Description of Interest Points in Images",
+author = "Morteza Ghahremani and Yitian Zhao and Bernard Tiddeman and Yonghuai Liu",
+journal = "Pattern Recognition",
+pages = "107821",
+year = "2021",
+issn = "0031-3203",
+doi = "https://doi.org/10.1016/j.patcog.2021.107821",
+url = "http://www.sciencedirect.com/science/article/pii/S003132032100008X",
+}
 ```
