@@ -59,7 +59,7 @@ if __name__ == '__main__':
             image_dir  = os.path.join(curr_dir, opt.input_pairs, image_name)
             store_dir  = os.path.join(curr_dir, opt.input_pairs)
             IMGs.append(image_dir)
-            process = subprocess.Popen('./InterTex_FFD '+ str(os.path.join(curr_dir, opt.input_pairs, image_name)) + ' ' \
+            process = subprocess.Popen('./InterTexFFD '+ str(os.path.join(curr_dir, opt.input_pairs, image_name)) + ' ' \
                 + str(store_dir) + ' ' \
                 + str(opt.num_level) + ' ' \
                 + str(opt.max_keypoints) + ' ' \
