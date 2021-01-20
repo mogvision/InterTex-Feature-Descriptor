@@ -28,6 +28,7 @@ python3 demo.py
 python3 match_pairs.py
 ```
 
+P.S. If you get error: "./InterTexFFD: Permission denied", please just run `chmod 777 InterTexFFD'.
 
 ## BibTeX Citation
 If you use any ideas from the paper or code from this repo, please consider citing:
