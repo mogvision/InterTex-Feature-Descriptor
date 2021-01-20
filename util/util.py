@@ -94,10 +94,9 @@ def Matcher_NNDR(IMGs, KPTS_DES):
     img3 = cv2.drawMatches(img1,kp1,img2,kp2,matches,None,**draw_params)
 
     kp_num = np.minimum(KPTS_DES[0][0].shape[0], KPTS_DES[0][1].shape[0])
-    print("[+] #Detected keypoints:  %d -> #inliers(using cv2.RANSAC)/#matches: %d / %d"%(kp_num, sum(matchesMask), len(matches)))
+    print("[+] #Detected keypoints:  %d -> #inliers (by cv2.RANSAC)/#matches: %d / %d"%(kp_num, sum(matchesMask), len(matches)))
 
     drawKeyPts(img1, kp1, (0,255,0), 2, "kp1.png")
     drawKeyPts(img2, kp2, (0,0,255), 2, "kp2.png")
 
     cv2.imwrite("matches_NNDR.png", img3) 
-    print("The matching result is stored as `matches_NNDR.png' ")

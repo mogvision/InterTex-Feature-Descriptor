@@ -66,5 +66,5 @@ if __name__ == '__main__':
 
             print("[+] \n  %s: #detected keypoints->%d"%(image_name,num_kp) )
             with np.printoptions(precision=3, suppress=True, threshold=5):
-                print("\tx,\ty,\tscale,\tresponse,\tangle,\tdes:\n", keypoints, des)
+                print("\tx,\ty,\tscale,\tresponse,\t angle,\tdes: \n", keypoints, des)
 
