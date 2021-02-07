@@ -100,3 +100,39 @@ def Matcher_NNDR(IMGs, KPTS_DES):
     drawKeyPts(img2, kp2, (0,0,255), 2, "kp2.png")
 
     cv2.imwrite("matches_NNDR.png", img3) 
+
+
+
+
+def Matcher_NNDR2(IMGs, KPTS_DES):
+    img1, img2 = IMGs[0], IMGs[1]
+    kp1, des1 = KPTS_DES[0]
+    kp1 = KP_opencv(kp1)
+
+    kp2, des2 = KPTS_DES[1]
+    kp2 = KP_opencv(kp2)
+    
+    #feature matching
+    bf = cv2.BFMatcher(cv2.NORM_L2, crossCheck=True)
+    matches = bf.match(des1,des2)
+    matches = sorted(matches, key = lambda x:x.distance)
+
+    src_pts = np.float32([ kp1[m.queryIdx].pt for m in matches ]).reshape(-1,1,2)
+    dst_pts = np.float32([ kp2[m.trainIdx].pt for m in matches ]).reshape(-1,1,2)
+    M, mask = cv2.findHomography(src_pts, dst_pts, cv2.RANSAC,5.0)
+    matchesMask = mask.ravel().tolist()
+
+    draw_params = dict(matchColor = (0,255,0), # draw matches in green color
+                   singlePointColor = None,
+                   matchesMask = matchesMask, # draw only inliers
+                   flags = 2)
+
+    img3 = cv2.drawMatches(img1,kp1,img2,kp2,matches,None,**draw_params)
+
+    kp_num = np.minimum(KPTS_DES[0][0].shape[0], KPTS_DES[0][1].shape[0])
+    print("[+] #Detected keypoints:  %d -> #inliers (by cv2.RANSAC)/#matches: %d / %d"%(kp_num, sum(matchesMask), len(matches)))
+
+    drawKeyPts(img1, kp1, (0,255,0), 2, "kp1.png")
+    drawKeyPts(img2, kp2, (0,0,255), 2, "kp2.png")
+
+    cv2.imwrite("matches_detFFD_desInterTex.png", img3) 
